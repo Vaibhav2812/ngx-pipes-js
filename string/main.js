@@ -26,13 +26,28 @@ console.log(repeat('Javascript', '@', 5));
 
 //shorten
 function shorten(str, n, notation) {
-    var short =  str.slice(0, n);
+    var short = str.slice(0, n);
     if (str.length <= n) {
         notation = '';
-      }
+    }
     return short + notation;
-  }
-  console.log(shorten('Javscript is awesome', 20, '...'));
+}
+console.log(shorten('Javscript is awesome', 20, '...'));
+
+//first letter uppercase in word
+function ucfirst(string) {
+    var text = string.charAt(0).toUpperCase() + string.slice(1);
+    return text;
+}
+console.log(ucfirst('vaivbac lax'));
+
+//uppercase first letter of each word
+function ucwords(string) {
+    return string.split(" ").map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(" ");
+}
+console.log(ucwords('javascript is awesome'));
 
 //flatten given array
 function flatten(array) {
