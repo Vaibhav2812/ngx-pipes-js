@@ -49,6 +49,50 @@ function ucwords(string) {
 }
 console.log(ucwords('javascript is awesome'));
 
+//slugify 
+//Foo bar => foo-bar
+let slugify = (string) => string.split(" ").map((word) => {
+    return word.toLowerCase();
+}).join('-');
+console.log('=====>', slugify('vaibhav-bar'));
+
+
+//camelize
+//foo_bar => fooBar
+let camelize = (string) => string.split(/[_-\s]/)
+    .filter((val) => !!val)
+    .map((word, key) => {
+        let txt = !key ? word.toLowerCase() : word.slice(0, 1).toUpperCase() + word.slice(1) ;
+        return txt;
+    }).join("");
+console.log('=====>', camelize('Vaibhav_laxman-patil uttut'));
+
+//undersore
+//javascriptIsAweoms => javascriipt_is_awesome)
+
+let underscore = (str)=> {
+    return str.replace(/\s/g, '')
+    .replace(/[A-Z]/g, (word, key)=> {
+    return key ? `_${word.toLowerCase()}` : word.toLowerCase();
+    })
+    }
+    console.log(underscore('javascriiptIsAewosme'));
+
+//find factorial
+function pow(a,n) {
+    let factorial = a;
+      for(var i = 1; i< n ; i++) {
+        factorial *= a;
+      }
+      return factorial;
+  }
+  console.log(pow(2,3))
+
+ function pow2(a, n) {
+     return (a**n)
+ };
+ console.log(pow2(5,3));
+ 
 //flatten given array
 function flatten(array) {
     return array.reduce((arr, ele) => {
@@ -61,3 +105,4 @@ function flatten(array) {
 
 var items = [1, 2, 3, [4, 5, 6, [7, 8, 9], [10, 11, 12, 13, [14], [15], [16, [17]]]]];
 console.log(flatten(items));
+
